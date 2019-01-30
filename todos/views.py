@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Todo
+from .models import Todo, User
 
 # Create your views here.
 def index(request):
@@ -27,3 +27,33 @@ def add(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')    
+
+def ajax(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        password = request.POST['password']
+
+        u = User(
+            name = name,
+            email = email,
+            password = password
+        )
+        u.save()
+    return render(request, 'ajax.html')
+
+# redundand (used before adiing ajax)
+def create(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        password = request.POST['password']
+
+        u = User(
+            name = name,
+            email = email,
+            password = password
+        )
+        u.save()
+
+        return render(request, 'ajax.html')

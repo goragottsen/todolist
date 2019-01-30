@@ -1,2 +1,25 @@
 </body>
+{% comment %} <script type="text/javascript" src={% static 'todos/js/material.js' %}></script>
+<script type="text/javascript" src={% static 'todos/js/jquery.min.js' %}></script> {% endcomment %}
+
+<script type="text/javascript"> 
+    $(document).on('submit', '#new_user_form', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: '/ajax',
+            data:{
+                name:$('#name').val(),
+                email:$('#email').val(),
+                password:$('#password').val()
+            },
+            success:function(){
+
+            }
+        });
+    });
+
+</script>
+
 </html>

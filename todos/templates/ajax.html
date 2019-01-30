@@ -1,0 +1,26 @@
+{% include 'partials/header.html'%}
+<form id="new_user_form" method="post" >
+{% csrf_token %}
+<div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" name="name" type="text" id="name"/>
+    <label class="mdl-textfield__label" for="name">Name</label>
+    <span class="mdl-textfield__error"></span>
+</div>
+<br/>
+<div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" name="email" type="email" id="email"/>
+    <label class="mdl-textfield__label" for="email">Email</label>
+    <span class="mdl-textfield__error"></span>
+</div>
+<br/>
+<div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" name="password" type="password" id="password"/>
+    <label class="mdl-textfield__label" for="password">Password</label>
+    <span class="mdl-textfield__error"></span>
+</div>
+<div class="mdl-card__actions mdl-card--border">
+    <input type="submit" class="mdl-button--colored mdl-js-button mdl-js-ripple-effect" value="submit">
+</div>
+</form>
+
+{% include 'partials/footer.html'%}
